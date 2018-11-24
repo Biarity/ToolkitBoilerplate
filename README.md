@@ -1,4 +1,18 @@
-# Rename
+# Git Setup
+
+```
+git clone https://github.com/Biarity/ToolkitBoilerplate.git;
+cd ToolkitBoilerplate;
+git remote rm origin;
+git remote add boilerplate https://github.com/Biarity/ToolkitBoilerplate.git;
+git config remote.boilerplate.pushurl "DONT PUSH TO BOILERPLATE";
+git remote add origin $PROJECT_ORIGIN
+```
+
+* Push local `master` to origin remote (project-specific remote): `git push origin master`
+* Pull local `master` to boilerplate remote: `git pull boilerplate master`
+
+# Renaming
 
 * In VisualStudio
     * Rename project
@@ -10,10 +24,3 @@
     * Rename `name` key
 * Open up `/ClientApp/public/manifest.json`
     * Rename `name` and `short_name` keys
-
-# Setup
-
-* Make boilerplate repo pull-only
-	* `git remote add boilerplate https://BOILERPLATE_REPO_LOCATION.git`
-	* `git config remote.boilerplate.pushurl "DONT PUSH TO BOILERPLATE"`
-	* Then to get updates from the boilerplate `git pull boilerplate`
