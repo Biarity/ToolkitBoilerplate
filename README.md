@@ -38,6 +38,6 @@ git remote add origin $YOUR_PROJECT_ORIGIN
 
 # TODO
 
-[ ] Vue boilerplate for login, flags, alerts, comments, notifications
-[ ] Controllers and entities for boilerplate for comments, reactions, notifications, flagging
-[ ] `ApplicationHub` boilerplate
+- [ ] Vue boilerplate for login, flags, alerts, comments, notifications
+- [ ] Controllers and entities for boilerplate for comments, reactions, notifications, flagging
+- [ ] `ApplicationHub` boilerplate
