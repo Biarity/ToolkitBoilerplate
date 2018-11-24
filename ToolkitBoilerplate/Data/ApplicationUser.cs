@@ -27,5 +27,10 @@ namespace ToolkitBoilerplate.Data
         [RegularExpression("[A-Za-z0-9]+")]
         [PersonalData]
         public string UserName { get; set; }
+
+        public void Map(ref ApplicationUser user)
+        {
+            user.UserName = UserName;
+        }
     }
 }

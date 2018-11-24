@@ -18,10 +18,8 @@ namespace ToolkitBoilerplate.Controllers
 {
     [Authorize]
     [Route("api/[controller]/[action]")]
-    public abstract class AccountController : Controller
+    public class AccountController : Controller
     {
-        protected virtual string AuthTokenSecretKey { get => "AuthTokenSecret"; }
-
         private readonly IConfiguration _config;
         private readonly UserManager<ApplicationUser> _userManager;
         private readonly SignInManager<ApplicationUser> _signInManager;
@@ -61,13 +59,13 @@ namespace ToolkitBoilerplate.Controllers
             {
                 Id = 0,
                 Email = model.Email,
-                SecurityStamp = _config[AuthTokenSecretKey]
+                SecurityStamp = _config["AuthTokenSecret"]
             }, "Email", "Choice");
 
             // Will not wait for email to be sent
-#pragma warning disable CS4014 // Because this call is not awaited, execution of the current method continues before the call is completed
+            #pragma warning disable CS4014 // Because this call is not awaited, execution of the current method continues before the call is completed
             SendTokenAsync(model.Email, token);
-#pragma warning restore CS4014
+            #pragma warning restore CS4014
 
             _logger.LogInformation($"Token sent to '{model.Email}'.");
 
@@ -123,7 +121,7 @@ namespace ToolkitBoilerplate.Controllers
                     return BadRequest(ModelState);
 
                 user = new ApplicationUser();
-                Map(model, ref user);
+                model.Map(ref user);
 
                 user.Email = model.Email;
                 user.EmailConfirmed = true;
@@ -147,8 +145,7 @@ namespace ToolkitBoilerplate.Controllers
                 user.Email
             });
         }
-
-
+        
         [HttpPost]
         [Authorize]
         public async Task<IActionResult> Logout()
@@ -166,7 +163,7 @@ namespace ToolkitBoilerplate.Controllers
             //var user = additionalUserInfo.ToApplicationUser();
             var user = await _userManager.GetUserAsync(User);
 
-            Map(additionalUserInfo, ref user);
+            additionalUserInfo.Map(ref user);
 
             var update = await _userManager.UpdateAsync(user);
 
@@ -234,8 +231,5 @@ namespace ToolkitBoilerplate.Controllers
             await _emailSender.SendEmailAsync(email, subject, message);
         }
 
-        /// Maps additionalUserInfo properties to user
-        /// user.UserName = additionalUserInfo.UserName;
-        protected abstract void Map(AdditionalUserInfoViewModel additionalUserInfo, ref ApplicationUser user);
     }
 }
