@@ -1,4 +1,4 @@
-# toolkit-boilerplate
+# Basics
 
 ## Project setup
 ```
