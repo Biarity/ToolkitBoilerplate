@@ -29,4 +29,15 @@ git remote add origin $YOUR_PROJECT_ORIGIN
 * Open up `/ClientApp/public/manifest.json`
     * Rename `name` and `short_name` keys
 
-## 
+## Next steps
+
+* Add entities (should be subclasses of `ApplicationEntity`)
+* Create migrations & update database (`Add-Migration Init; Update-Database`)
+* Create controllers for each entity (should be subclasses of `ApplicationController`, can use `/swagger` to debug)
+* Start on frontend
+
+# TODO
+
+[ ] Vue boilerplate for login, flags, alerts, comments, notifications
+[ ] Controllers and entities for boilerplate for comments, reactions, notifications, flagging
+[ ] `ApplicationHub` boilerplate
