@@ -1,4 +1,6 @@
-# Git Setup
+# Setup
+
+## Git
 
 Replace `$YOUR_PROJECT_ORIGIN` with your new project's origin
 
@@ -14,7 +16,7 @@ git remote add origin $YOUR_PROJECT_ORIGIN
 * Push local `master` to `origin` remote (project-specific remote): `git push origin master`
 * Pull local `master` to `boilerplate` remote: `git pull boilerplate master`
 
-# Renaming
+## Renaming
 
 * In VisualStudio
     * Rename project
