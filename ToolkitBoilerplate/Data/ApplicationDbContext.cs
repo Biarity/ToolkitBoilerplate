@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace ToolkitBoilerplate.Data
 {
-    public abstract class ApplicationDbContext : IdentityDbContext<ApplicationUser, IdentityRole<int>, int>
+    public class ApplicationDbContext : IdentityDbContext<ApplicationUser, IdentityRole<int>, int>
     {
         public ApplicationDbContext(DbContextOptions options) : base(options)
         {

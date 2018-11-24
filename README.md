@@ -28,3 +28,5 @@ git remote add origin $YOUR_PROJECT_ORIGIN
     * Rename `name` key
 * Open up `/ClientApp/public/manifest.json`
     * Rename `name` and `short_name` keys
+
+## 
