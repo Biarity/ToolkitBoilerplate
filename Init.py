@@ -2,7 +2,7 @@ import os
 import fileinput
 import glob
 
-old_name = "Core" + "Boilerplate"
+old_name = "Toolkit" + "Boilerplate"
 path = input("Path (./): ")
 new_name = input("New name: ")
 
