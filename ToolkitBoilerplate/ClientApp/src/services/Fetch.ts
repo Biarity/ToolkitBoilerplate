@@ -42,10 +42,10 @@ export default class Fetch {
         init: RequestInit = {},
         enableAlerts: boolean = true): Promise<Response> {
 
-        if (enableAlerts && !store.getters.isAuthenticated && ['POST', 'PUT', 'DELETE'].includes(init.method)) {
+        if (enableAlerts && !store.getters.isAuthenticated && ['POST', 'PUT', 'DELETE'].includes(init.method || "PUT")) {
             store.commit('toggleLoginModal');
             this.unauthorizedAlert();
-            return { status: 401 };
+            return new Response();
         }
 
         NProgress.start();

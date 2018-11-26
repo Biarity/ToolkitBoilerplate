@@ -49,9 +49,9 @@
                     body: this.body,
                 };
 
-                if (this.$store.state.flagType === 'comment') {
-                    data.commentId = this.$store.state.flagId;
-                }
+                //if (this.$store.state.flagType === 'comment') {
+                //    data.commentId = this.$store.state.flagId;
+                //}
 
                 const res = await Fetch.Create('flags', data);
                 

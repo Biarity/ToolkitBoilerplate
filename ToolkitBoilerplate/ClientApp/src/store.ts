@@ -5,13 +5,13 @@ Vue.use(Vuex)
 
 export default new Vuex.Store({
     state: {
-        alerts: [],
+        alerts: new Array,
         grecaptchaRendered: false,
         showLoginModal: false,
         showFlagModal: false,
         flagType: '',
         flagId: -1,
-        flagLocals: []
+        flagLocals: new Array
     },
     mutations: {
         addAlert(state, { type, text }) {
@@ -41,7 +41,7 @@ export default new Vuex.Store({
 
             const _this = this;
             setTimeout(() => {
-                _this.commit('removeAlert', id);
+                _this.commit('removeAlert' as any, id);
             }, 10000);
 
             // Display max 1 error, can change

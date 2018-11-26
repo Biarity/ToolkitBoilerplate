@@ -24,12 +24,19 @@
 
     export default Vue.extend({
         name: 'MyInfiniteLoading',
-        props: ['entity-path', 'filters', 'sorts', 'start-at-page', 'page-size'],
+        props: {
+            entityPath: String,
+            filters: String,
+            sorts: String,
+            startAtPage: Number,
+            pageSize: Number
+        },
         data() {
             return {
                 page: 1,
-                data: [],
+                data: new Array,
                 metadata: {},
+                ilState: InfiniteLoading
             };
         },
         watch: {
@@ -49,12 +56,13 @@
         },
         methods: {
             reset() {
-                this.$refs.iL.stateChanger.reset();
+                this.ilState.reset();
                 this.page = this.startAtPage || 1;
                 this.data = [];
                 this.metadata = {};
             },
-            async loadData($state) {
+            async loadData($state: any) {
+                this.ilState = $state;
                 const res = await Fetch.Read(this.entityPath, {
                     pageSize: this.pageSize || 10,
                     page: this.page,

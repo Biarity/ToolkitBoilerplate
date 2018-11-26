@@ -14,23 +14,20 @@
         },
         data() {
             return {
-                timeago: {},
+                timeago: timeago(),
             };
         },
         computed: {
-            result() {
+            result: function() {
                 return this.timeago.format(this.date)
                     .replace(' ago', this.showAgo ? ' ago' : '')
-                    // .replace('seconds', 's')
+                    .replace('seconds', 's')
                     .replace('minute', 'min')
                     .replace('hour', 'hr')
                     .replace('year', 'yr')
                     .trim();
-            },
-        },
-        created() {
-            this.timeago = timeago();
-        },
+            }
+        }
     });
 </script>
 

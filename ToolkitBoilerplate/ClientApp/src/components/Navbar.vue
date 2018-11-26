@@ -130,9 +130,9 @@
             document.addEventListener('DOMContentLoaded', () => {
                 const $navbarBurgers = Array.prototype.slice.call(document.querySelectorAll('.navbar-burger'), 0);
                 if ($navbarBurgers.length > 0) {
-                    $navbarBurgers.forEach(($el) => {
+                    $navbarBurgers.forEach(($el: any) => {
                         $el.addEventListener('click', () => {
-                            $navbarBurgers.forEach(($elOther) => {
+                            $navbarBurgers.forEach(($elOther: any) => {
                                 if ($el !== $elOther) {
                                     const target = $elOther.dataset.target;
                                     const $target = document.getElementById(target);
@@ -154,9 +154,9 @@
                 const $navbarAntiBurgers = Array.prototype.slice
                     .call(document.querySelectorAll('.navbar-anti-burger'), 0);
                 if ($navbarAntiBurgers.length > 0) {
-                    $navbarAntiBurgers.forEach(($el) => {
+                    $navbarAntiBurgers.forEach(($el: any) => {
                         $el.addEventListener('click', () => {
-                            $navbarBurgers.forEach(($elOther) => {
+                            $navbarBurgers.forEach(($elOther: any) => {
                                 const target2 = $elOther.dataset.target;
                                 const $target2 = document.getElementById(target2);
                                 $elOther.classList.remove('is-active');

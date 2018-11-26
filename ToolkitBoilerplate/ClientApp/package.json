@@ -7,6 +7,7 @@
     "build": "vue-cli-service build"
   },
   "dependencies": {
+    "@types/nprogress": "0.0.29",
     "nprogress": "^0.2.0",
     "register-service-worker": "^1.0.0",
     "timeago.js": "^4.0.0-beta.1",
