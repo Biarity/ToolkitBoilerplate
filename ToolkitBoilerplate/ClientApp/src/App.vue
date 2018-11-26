@@ -1,29 +1,34 @@
 <template>
-  <div id="app">
-    <div id="nav">
-      <router-link to="/">Home</router-link> |
-      <router-link to="/about">About</router-link>
+    <div id="app">
+        <Navbar></Navbar>
+        <br />
+        <br />
+        <div class="container">
+            <router-view />
+        </div>
+        <Alerts />
+        <Login v-if="!$store.getters.isAuthenticated" />
+        <Flag />
     </div>
-    <router-view/>
-  </div>
 </template>
 
+<script lang="ts">
+    import Vue from 'vue';
+    import Alerts from '@/components/Alerts.vue';
+    import Navbar from '@/components/Navbar.vue';
+    import Login from '@/components/Login.vue';
+    import Flag from '@/components/Flag.vue';
+
+    export default Vue.extend({
+        name: 'app',
+        components: {
+            Alerts,
+            Navbar,
+            Login,
+            Flag
+        },
+    });
+</script>
+
 <style lang="scss">
-#app {
-  font-family: 'Avenir', Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-}
-#nav {
-  padding: 30px;
-  a {
-    font-weight: bold;
-    color: #2c3e50;
-    &.router-link-exact-active {
-      color: #42b983;
-    }
-  }
-}
 </style>

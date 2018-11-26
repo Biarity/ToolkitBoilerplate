@@ -1,0 +1,68 @@
+// Import Initial variables
+@import "node_modules/bulma/sass/utilities/initial-variables";
+@import "node_modules/bulma/sass/utilities/functions";
+
+
+$modal-content-width: 400px;
+
+
+// Dark theme
+
+$dark-navy: #001f3f;
+$link-blue: lightblue;
+$light: #cbd3d8;
+$lighter: #a9c1d1;
+$dark: #263238;
+$dark-light: #384a54;
+$dark-lightest: #62727b;
+
+$white: $dark;
+
+$grey-darker: $light;
+$grey-dark: $lighter;
+$grey-lighter: $dark-light;
+$grey-light: $dark-lightest;
+
+$box-color: $light;
+$box-background-color: $dark;
+
+$button-hover-color: $link-blue;
+$button-border: $dark;
+$button-focus-border-color: $dark-lightest;
+
+$navbar-item-hover-color: $light;
+$navbar-item-color: $light;
+$navbar-item-hover-color: $light;
+$navbar-item-hover-background-color: $dark;
+$navbar-dropdown-background-color: $dark-light;
+$navbar-background-color: $dark-light;
+
+$dropdown-item-hover-color: $lighter;
+$dropdown-item-color: $light;
+
+$link: $link-blue;
+$link-hover: $lighter;
+$link-hover-border: $grey-light;
+
+$label-color: $light;
+
+$input-focus-border-color: $dark-lightest;
+
+$text: $light;
+$text-light: $lighter;
+$text-strong: $lighter;
+
+$menu-item-active-background-color: $dark-light;
+
+$background: $dark;
+
+$success: #7b773d;
+$primary: $dark;
+$info: #0c61b9;
+
+$body-color: $light;
+$body-background-color: #19232d;
+
+
+// Import the rest of Bulma
+@import "node_modules/bulma/bulma";
