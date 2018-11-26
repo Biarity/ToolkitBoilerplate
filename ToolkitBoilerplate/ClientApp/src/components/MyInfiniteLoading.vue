@@ -35,8 +35,7 @@
             return {
                 page: 1,
                 data: new Array,
-                metadata: {},
-                ilState: InfiniteLoading
+                metadata: {}
             };
         },
         watch: {
@@ -56,13 +55,12 @@
         },
         methods: {
             reset() {
-                this.ilState.reset();
+                this.$refs.iL.stateChanger.reset();
                 this.page = this.startAtPage || 1;
                 this.data = [];
                 this.metadata = {};
             },
             async loadData($state: any) {
-                this.ilState = $state;
                 const res = await Fetch.Read(this.entityPath, {
                     pageSize: this.pageSize || 10,
                     page: this.page,

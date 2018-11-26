@@ -28,6 +28,15 @@ git remote add origin $YOUR_PROJECT_ORIGIN
     * Rename `name` key
 * Open up `/ClientApp/public/manifest.json`
     * Rename `name` and `short_name` keys
+* Open up `STATR_DEV.bat`
+	* Rename cd line to project name
+
+## Start dev servers
+
+In the project directory,
+* `dotnet watch run` to start backend on port 5000
+* `npm run serve --prefix ClientApp` to start frontend on port 8080
+* Note in dev backend reverse proxies frontend so no need to got o port 8080
 
 ## Next steps
 
@@ -36,8 +45,16 @@ git remote add origin $YOUR_PROJECT_ORIGIN
 * Create controllers for each entity (should be subclasses of `ApplicationController`, can use `/swagger` to debug)
 * Start on frontend
 
+# Deploy
+
+* Build frontend
+* Build backend
+* Docker? 
+* TODO
+
 # TODO
 
 - [ ] Vue boilerplate for login, flags, alerts, comments, notifications
 - [ ] Controllers and entities for boilerplate for comments, reactions, notifications, flagging
 - [ ] `ApplicationHub` boilerplate
+- [ ] Deployment plan and instructions
