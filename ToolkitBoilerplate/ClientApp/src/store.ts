@@ -24,10 +24,11 @@ export default new Vuex.Store({
                     tagline = '';
                     break;
                 case 'warning':
-                    tagline = 'Warning! ';
+                    tagline = 'Warning!';
                     break;
-                case 'danger':
-                    tagline = 'Error! ';
+                case 'error':
+                    type = 'danger';
+                    tagline = 'Error!';
                     break;
             }
 

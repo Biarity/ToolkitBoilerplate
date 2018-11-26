@@ -140,6 +140,10 @@
                     method: 'POST',
                     body: formData,
                 });
+                if (res.status !== 200 && res.status !== 202) {
+                    this.$store.commit('addAlert',
+                        { type: 'warning', text: await res.json() });
+                }
             },
             async submitCode(e) {
                 const res = await Fetch.Req('account/login', {
@@ -167,7 +171,7 @@
 
                 if ((res.status === 400 && this.isRegistering) || res.status === 500) {
                     this.$store.commit('addAlert',
-                        { type: 'warning', text: await res.json() });
+                        { type: 'error', text: await res.statusText });
                 }
 
                 if (res.status === 400 && !this.isRegistering) {

@@ -2,7 +2,7 @@
 import 'nprogress/nprogress.css';
 import NProgress from 'nprogress';
 
-const baseUri = process.env.NODE_ENV === 'development' ? 'http://localhost:8080/api' : 'https://MY_SITE.com/api';
+const baseUri = process.env.NODE_ENV === 'development' ? 'http://localhost:5000/api' : 'https://MY_SITE.com/api';
 
 export default class Fetch {
 
@@ -69,7 +69,7 @@ export default class Fetch {
             if (res.status >= 300) {
                 let type = 'warning';
                 if (res.status >= 500) {
-                    type = 'danger';
+                    type = 'error';
                 }
                 let body;
                 try {

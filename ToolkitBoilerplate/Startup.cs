@@ -210,9 +210,11 @@ namespace ToolkitBoilerplate
             }
 
             app.UseCookiePolicy();
-            app.UseHttpsRedirection();
 
             app.UseResponseCaching();
+
+            if (Env.IsProduction())
+                app.UseHttpsRedirection();
 
             app.UseStaticFiles();
             app.UseSpaStaticFiles();
