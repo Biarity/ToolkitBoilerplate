@@ -4,10 +4,10 @@ using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 
-namespace ToolkitBoilerplate.Controllers
+namespace ToolkitBoilerplate.Infrastructure.Controllers
 {
     [Route("api/[controller]")]
-    public class SampleDataController : Controller
+    public class SampleDatasssController : Controller
     {
         private static string[] Summaries = new[]
         {

@@ -2,7 +2,7 @@
 using System;
 using System.Threading.Tasks;
 
-namespace ToolkitBoilerplate.Infrastructure
+namespace ToolkitBoilerplate.Infrastructure.Services
 {
     public class DevEmailSender : IEmailSender
     {

@@ -13,8 +13,9 @@ using System.Data.Common;
 using System.Linq;
 using System.Threading.Tasks;
 using ToolkitBoilerplate.Data;
+using ToolkitBoilerplate.Infrastructure.Data;
 
-namespace ToolkitBoilerplate.Infrastructure
+namespace ToolkitBoilerplate.Infrastructure.Controllers
 {
     [ApiController]
     public abstract class ApplicationController<TEntity> : ControllerBase

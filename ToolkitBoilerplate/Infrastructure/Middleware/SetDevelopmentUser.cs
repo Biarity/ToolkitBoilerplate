@@ -4,7 +4,7 @@ using System;
 using System.Security.Claims;
 using System.Threading.Tasks;
 
-namespace ToolkitBoilerplate.Infrastructure
+namespace ToolkitBoilerplate.Infrastructure.Middleware
 {
     public class SetDevelopmentUser
     {

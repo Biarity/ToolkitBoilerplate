@@ -5,7 +5,7 @@ using System.Net;
 using System.Net.Mail;
 using System.Threading.Tasks;
 
-namespace ToolkitBoilerplate.Infrastructure
+namespace ToolkitBoilerplate.Infrastructure.Services
 {
     public class SmtpMessageSender : IEmailSender
     {

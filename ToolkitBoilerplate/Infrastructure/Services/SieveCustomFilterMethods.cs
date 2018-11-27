@@ -4,9 +4,9 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace ToolkitBoilerplate.Services
+namespace ToolkitBoilerplate.Infrastructure.Services
 {
-    public class SieveCustomSortMethods : ISieveCustomSortMethods
+    public class SieveCustomFilterMethods : ISieveCustomFilterMethods
     {
     }
 }

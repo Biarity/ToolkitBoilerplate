@@ -2,7 +2,7 @@
 using Microsoft.AspNetCore.Http;
 using System.Threading.Tasks;
 
-namespace ToolkitBoilerplate.Infrastructure
+namespace ToolkitBoilerplate.Infrastructure.Middleware
 {
     public class AddUserDetailCookie
     {

@@ -10,6 +10,11 @@ namespace ToolkitBoilerplate.Data
 {
     public class ApplicationDbContext : IdentityDbContext<ApplicationUser, IdentityRole<int>, int>
     {
+        public DbSet<Post> Posts { get; set; }
+        public DbSet<PostReaction> PostReactions { get; set; }
+        public DbSet<PostComment> PostComments { get; set; }
+        public DbSet<PostCommentReaction> PostCommentReactions { get; set; }
+
         public ApplicationDbContext(DbContextOptions options) : base(options)
         {
         }

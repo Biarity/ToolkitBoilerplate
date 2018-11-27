@@ -33,7 +33,9 @@ git remote add origin $YOUR_PROJECT_ORIGIN
 
 ## Start dev servers
 
-In the project directory,
+Open `START_DEV.bat`.
+
+Or...in the project directory,
 * `dotnet watch run` to start backend on port 5000
 * `npm run serve --prefix ClientApp` to start frontend on port 8080
 * Note in dev backend reverse proxies frontend so no need to got o port 8080

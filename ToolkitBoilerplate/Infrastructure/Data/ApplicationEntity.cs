@@ -1,12 +1,13 @@
 ﻿using Sieve.Attributes;
 using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Runtime.Serialization;
 using System.Threading.Tasks;
 using ToolkitBoilerplate.Data;
 
-namespace ToolkitBoilerplate.Infrastructure
+namespace ToolkitBoilerplate.Infrastructure.Data
 {
     [DataContract]
     public abstract class ApplicationEntity
@@ -25,6 +26,9 @@ namespace ToolkitBoilerplate.Infrastructure
         public virtual ApplicationUser User { get; set; }
 
         public virtual bool IsDeleted { get; set; }
+
+        [NotMapped]
+        public const string RegexForName = "[A-Za-z0-9_ ]+";
 
         public virtual void Create(int userId = 0)
         {
