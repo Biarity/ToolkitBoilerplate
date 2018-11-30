@@ -5,12 +5,15 @@
 Replace `$YOUR_PROJECT_ORIGIN` with your new project's origin
 
 ```bash
-git clone https://github.com/Biarity/ToolkitBoilerplate.git
-cd ToolkitBoilerplate
-git remote rm origin
-git remote add boilerplate https://github.com/Biarity/ToolkitBoilerplate.git
-git config remote.boilerplate.pushurl "(do not push to boilerplate)"
-git remote add origin $YOUR_PROJECT_ORIGIN
+git clone https://github.com/Biarity/ToolkitBoilerplate.git . 
+&& git remote rm origin 
+&& git remote add boilerplate https://github.com/Biarity/ToolkitBoilerplate.git 
+&& git config remote.boilerplate.pushurl "(do not push to boilerplate)" 
+&& git remote add origin $YOUR_PROJECT_ORIGIN 
+&& dotnet restore 
+&& npm install --prefix ClientApp
+&& dotnet ef migrations add Init
+&& dotnet ef database update
 ```
 
 * Push local `master` to `origin` remote (project-specific remote): `git push origin master`
@@ -33,7 +36,13 @@ git remote add origin $YOUR_PROJECT_ORIGIN
 
 ## Start dev servers
 
-Open `START_DEV.bat`.
+```bash
+cd ToolkitBoilerplate
+start cmd /k npm run serve --prefix ClientApp
+start cmd /k dotnet watch run
+```
+
+Or...Open `START_DEV.bat`.
 
 Or...in the project directory,
 * `dotnet watch run` to start backend on port 5000
