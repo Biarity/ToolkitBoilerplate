@@ -18,7 +18,8 @@ using System.IdentityModel.Tokens.Jwt;
 using System.Threading.Tasks;
 using ToolkitBoilerplate.Data;
 using ToolkitBoilerplate.Infrastructure;
-using ToolkitBoilerplate.Services;
+using ToolkitBoilerplate.Infrastructure.Middleware;
+using ToolkitBoilerplate.Infrastructure.Services;
 
 namespace ToolkitBoilerplate
 {
