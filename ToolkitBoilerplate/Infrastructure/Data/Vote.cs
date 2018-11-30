@@ -18,4 +18,5 @@ namespace ToolkitBoilerplate.Infrastructure.Data
         [DataMember]
         public bool UpVote { get; set; }
     }
+
 }
