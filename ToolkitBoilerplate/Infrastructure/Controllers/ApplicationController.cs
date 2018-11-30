@@ -155,7 +155,13 @@ namespace ToolkitBoilerplate.Infrastructure.Controllers
         protected virtual void MarkAllPropertiesModified(EntityEntry<TEntity> entityEntry)
         {
             foreach (var property in entityEntry.Properties)
-                property.IsModified = true;
+                if (new string[] {
+                        nameof(ApplicationEntity.Created),
+                        nameof(ApplicationEntity.Updated),
+                        nameof(ApplicationEntity.UserId),
+                        nameof(ApplicationEntity.IsDeleted) }
+                    .Contains(property.Metadata.Name))
+                    property.IsModified = true;
         }
 
         protected virtual void MarkPropertiesNotModified(EntityEntry<TEntity> entityEntry, params string[] propertyNames)

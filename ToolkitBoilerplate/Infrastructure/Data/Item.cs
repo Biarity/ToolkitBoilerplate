@@ -11,7 +11,7 @@ using ToolkitBoilerplate.Infrastructure;
 namespace ToolkitBoilerplate.Infrastructure.Data
 {
     [DataContract]
-    public class Content : ApplicationEntity
+    public class Item : ApplicationEntity
     {
         [DataMember(IsRequired = true), MinLength(3), MaxLength(50), RegularExpression(RegexForName)]
         public string Name { get; set; }
@@ -25,13 +25,12 @@ namespace ToolkitBoilerplate.Infrastructure.Data
         public bool IsMature { get; set; }
     }
 
-    public class Content<TComment> : Content
+    public class Item<TSelf, TVote> : Item, IVoteParent
+        where TSelf : Item<TSelf, TVote>, new()
+        where TVote : Vote<TSelf>, new()
     {
-        public List<TComment> Comments { get; set; }
-    }
-
-    public class Content<TComment, TReaction> : Content<TComment>
-    {
-        public List<TReaction> Reactions { get; set; }
+        [DataMember]
+        public int VoteCount { get; set; }
+        public List<TVote> Votes { get; set; }
     }
 }

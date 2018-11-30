@@ -6,8 +6,8 @@ using ToolkitBoilerplate.Infrastructure.Data;
 
 namespace ToolkitBoilerplate.Data
 {
-    public class Post : Content<PostComment, PostReaction> { }
-    public class PostReaction : Reaction<Post, VoteReactionType> { }
-    public class PostComment : Comment<Post, PostCommentReaction> { }
-    public class PostCommentReaction : Reaction<PostComment, VoteReactionType> { }
+    public class Post : Item<Post, PostVote> { }
+    public class PostVote : Vote<Post> { }
+    public class PostComment : Comment<PostComment, Post, PostCommentVote> { }
+    public class PostCommentVote : Vote<PostComment> { }
 }

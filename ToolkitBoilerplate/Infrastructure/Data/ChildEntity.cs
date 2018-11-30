@@ -8,21 +8,11 @@ using ToolkitBoilerplate.Infrastructure;
 namespace ToolkitBoilerplate.Infrastructure.Data
 {
     [DataContract]
-    public class Reaction<TParent, TReactionType> : ApplicationEntity
-        where TReactionType : Enum
+    public class ChildEntity<TParent> : ApplicationEntity
+        where TParent : ApplicationEntity, new()
     {
         [DataMember]
         public int ParentId { get; set; }
         public TParent Parent { get; set; }
-
-        [DataMember]
-        public TReactionType Type { get; set; }
     }
-
-    public enum VoteReactionType
-    {
-        Up,
-        Down
-    }
-
 }
