@@ -19,10 +19,6 @@ git clone https://github.com/Biarity/ToolkitBoilerplate.git .
 
 3. Run `dotnet ef database update` in /ToolkitBoilerplate
 
-4. [Rename](## Renaming)
-
-5. [Start dev servers](## Dev Servers)
-
 * To push local `master` to `origin` remote (project-specific remote): `git push origin master`
 * To pull local `master` to `boilerplate` remote: `git pull boilerplate master`
 
