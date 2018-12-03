@@ -1,8 +1,6 @@
 # Setup
 
-## Git
-
-Replace `$YOUR_PROJECT_ORIGIN` with your new project's origin
+1. Replace `$YOUR_PROJECT_ORIGIN` below with your new project's origin and run
 
 ```bash
 git clone https://github.com/Biarity/ToolkitBoilerplate.git . 
@@ -10,14 +8,23 @@ git clone https://github.com/Biarity/ToolkitBoilerplate.git .
 && git remote add boilerplate https://github.com/Biarity/ToolkitBoilerplate.git 
 && git config remote.boilerplate.pushurl "(do not push to boilerplate)" 
 && git remote add origin $YOUR_PROJECT_ORIGIN 
+&& cd ToolkitBoilerplate 
 && dotnet restore 
-&& npm install --prefix ClientApp
-&& dotnet ef migrations add Init
-&& dotnet ef database update
-```
+&& dotnet ef migrations add Init 
+&& cd ClientApp 
+&& npm install 
+``` 
 
-* Push local `master` to `origin` remote (project-specific remote): `git push origin master`
-* Pull local `master` to `boilerplate` remote: `git pull boilerplate master`
+2. Update `appsettings.json` and `appsettings.Development.json` in /ToolkitBoilerplate
+
+3. Run `dotnet ef database update` in /ToolkitBoilerplate
+
+4. [Rename](## Renaming)
+
+5. [Start dev servers](## Dev Servers)
+
+* To push local `master` to `origin` remote (project-specific remote): `git push origin master`
+* To pull local `master` to `boilerplate` remote: `git pull boilerplate master`
 
 ## Renaming
 
@@ -25,8 +32,6 @@ git clone https://github.com/Biarity/ToolkitBoilerplate.git .
     * Rename project
     * Rename solution
     * Rename namespace
-* Open up `appsettings.json` and `appsettings.Development.json`
-	* Replace stuff in square brackets
 * Open up `/ClientApp/project.json`
     * Rename `name` key
 * Open up `/ClientApp/public/manifest.json`
@@ -34,7 +39,7 @@ git clone https://github.com/Biarity/ToolkitBoilerplate.git .
 * Open up `STATR_DEV.bat`
 	* Rename cd line to project name
 
-## Start dev servers
+## Dev Servers
 
 ```bash
 cd ToolkitBoilerplate
@@ -44,12 +49,12 @@ start cmd /k dotnet watch run
 
 Or...Open `START_DEV.bat`.
 
-Or...in the project directory,
+That is, in the project directory,
 * `dotnet watch run` to start backend on port 5000
 * `npm run serve --prefix ClientApp` to start frontend on port 8080
-* Note in dev backend reverse proxies frontend so no need to got o port 8080
+* Note in dev backend reverse proxies frontend so no need to got to port 8080
 
-## Next steps
+# Next steps
 
 * Add entities (should be subclasses of `ApplicationEntity`)
 * Create migrations & update database (`Add-Migration Init; Update-Database`)
