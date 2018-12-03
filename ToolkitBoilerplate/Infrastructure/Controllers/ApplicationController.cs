@@ -17,6 +17,7 @@ using ToolkitBoilerplate.Infrastructure.Data;
 
 namespace ToolkitBoilerplate.Infrastructure.Controllers
 {
+    [Route("api/[controller]")]
     [ApiController]
     public abstract class ApplicationController<TEntity> : ControllerBase
         where TEntity : ApplicationEntity, new()

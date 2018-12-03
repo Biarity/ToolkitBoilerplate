@@ -42,9 +42,10 @@ git clone https://github.com/Biarity/ToolkitBoilerplate.git .
 ## Dev Servers
 
 ```bash
-cd ToolkitBoilerplate
-start cmd /k npm run serve --prefix ClientApp
-start cmd /k dotnet watch run
+cd ToolkitBoilerplate 
+&& start cmd /k dotnet watch run 
+&& cd ClientApp
+&& start cmd /k npm run serve 
 ```
 
 Or...Open `START_DEV.bat`.
