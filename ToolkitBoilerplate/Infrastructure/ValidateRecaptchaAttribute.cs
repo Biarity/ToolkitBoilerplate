@@ -28,8 +28,8 @@ namespace ToolkitBoilerplate.Infrastructure
 
         private async Task ValidateReCaptcha(ActionExecutingContext context)
         {
-            // if (_env.IsDevelopment())
-            //    return;
+            if (_env.IsDevelopment())
+               return;
 
             var secret = _config["Recaptcha:Secret"];
             var gRecaptchaResponse = context.HttpContext.Request.Form["g-recaptcha-response"];
