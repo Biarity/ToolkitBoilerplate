@@ -50,6 +50,7 @@ That is, in the project directory,
 * `dotnet watch run` to start backend on port 5000
 * `npm run serve --prefix ClientApp` to start frontend on port 8080
 * Note in dev backend reverse proxies frontend so no need to got to port 8080
+* To debug API use http://localhost:5000/swagger
 
 # Next steps
 

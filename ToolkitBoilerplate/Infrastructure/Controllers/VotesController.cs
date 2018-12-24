@@ -22,7 +22,7 @@ namespace ToolkitBoilerplate.Infrastructure.Controllers
         {
         }
 
-        [HttpPost("Vote/{parentId}")]
+        [HttpPost("{parentId}")]
         public async Task<IActionResult> Vote(int parentId, bool upVote)
         {
             if (!await CanVote(parentId))
@@ -80,7 +80,7 @@ namespace ToolkitBoilerplate.Infrastructure.Controllers
             return await SaveChangesAndReturn(vote);
         }
 
-        [HttpDelete("Vote/{id}")]
+        [HttpDelete("{id}")]
         public async Task<IActionResult> DeleteVote(int id)
         {
             if (!await DoesCurrentUserOwnAnyOfAsync(id))
