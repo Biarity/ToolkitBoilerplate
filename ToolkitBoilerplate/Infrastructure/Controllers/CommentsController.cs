@@ -44,6 +44,7 @@ namespace ToolkitBoilerplate.Infrastructure.Controllers
 
             var initialVote = new TCommentVote {};
             initialVote.Create(CurrentUserId);
+            comment.Votes = new List<TCommentVote>();
             comment.Votes.Add(initialVote);
             comment.VoteCount = 1;
 
