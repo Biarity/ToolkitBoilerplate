@@ -11,9 +11,9 @@ namespace ToolkitBoilerplate.Data
     public class ApplicationDbContext : IdentityDbContext<ApplicationUser, IdentityRole<int>, int>
     {
         public DbSet<Post> Posts { get; set; }
-        public DbSet<PostLike> PostLikes { get; set; }
+        public DbSet<PostVote> PostVotes { get; set; }
         public DbSet<PostComment> PostComments { get; set; }
-        public DbSet<PostCommentLike> PostCommentLikes { get; set; }
+        public DbSet<PostCommentLike> PostCommentVotes { get; set; }
 
         public ApplicationDbContext(DbContextOptions options) : base(options)
         {

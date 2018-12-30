@@ -30,7 +30,7 @@
     "src/**/*.tsx",
     "src/**/*.vue",
     "tests/**/*.ts",
-    "tests/**/*.tsx", "../Data/GenericReaction.cs", "../Controllers/Generic/GenericCommentsController.cs", "../Controllers/Generic/GenericReactionsController.cs", "../Data/Comment.cs"
+    "tests/**/*.tsx"
   ],
   "exclude": [
     "node_modules"
