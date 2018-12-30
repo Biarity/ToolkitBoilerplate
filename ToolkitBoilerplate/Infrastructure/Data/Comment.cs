@@ -10,10 +10,10 @@ using ToolkitBoilerplate.Infrastructure;
 namespace ToolkitBoilerplate.Infrastructure.Data
 {
     [DataContract]
-    public class Comment<TSelf, TParent, TVote> : ApplicationEntity, IVoteParent
-        where TSelf : Comment<TSelf, TParent, TVote>, new()
+    public class Comment<TSelf, TParent, TLike> : ApplicationEntity, ILikeParent
+        where TSelf : Comment<TSelf, TParent, TLike>, new()
         where TParent : ApplicationEntity, new()
-        where TVote : Vote<TSelf>, new()
+        where TLike : Like<TSelf>, new()
     {
         [DataMember(IsRequired = true)]
         public int ParentId { get; set; }
@@ -31,7 +31,7 @@ namespace ToolkitBoilerplate.Infrastructure.Data
         public virtual DateTimeOffset LastActive { get; set; }
 
         [DataMember]
-        public int VoteCount { get; set; }
-        public List<TVote> Votes { get; set; }
+        public int LikeCount { get; set; }
+        public List<TLike> Likes { get; set; }
     }
 }

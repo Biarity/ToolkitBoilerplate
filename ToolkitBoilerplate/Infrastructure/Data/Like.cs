@@ -6,17 +6,15 @@ using System.Threading.Tasks;
 
 namespace ToolkitBoilerplate.Infrastructure.Data
 {
-    public interface IVoteParent
+    public interface ILikeParent
     {
-        int VoteCount { get; set; }
-        //List<TVote> Votes { get; set; }
+        int LikeCount { get; set; }
+        //List<TLike> Likes { get; set; }
     }
 
-    public class Vote<TParent> : ChildEntity<TParent>
+    public class Like<TParent> : ChildEntity<TParent>
         where TParent : ApplicationEntity, new()
     {
-        [DataMember]
-        public bool UpVote { get; set; }
     }
 
 }

@@ -15,10 +15,10 @@ using ToolkitBoilerplate.Infrastructure.Data;
 namespace ToolkitBoilerplate.Infrastructure.Controllers
 {
     [Authorize]
-    public abstract class CommentsController<TComment, TCommentParent, TCommentVote> : ApplicationController<TComment>
-        where TComment : Comment<TComment, TCommentParent, TCommentVote>, new()
+    public abstract class CommentsController<TComment, TCommentParent, TCommentLike> : ApplicationController<TComment>
+        where TComment : Comment<TComment, TCommentParent, TCommentLike>, new()
         where TCommentParent : ApplicationEntity, new()
-        where TCommentVote : Vote<TComment>, new()
+        where TCommentLike : Like<TComment>, new()
     {
         public CommentsController(ApplicationDbContext dbContext, SieveProcessor sieveProcessor, IConfiguration config, ILogger<ApplicationController<TComment>> logger) : base(dbContext, sieveProcessor, config, logger)
         {
@@ -42,16 +42,16 @@ namespace ToolkitBoilerplate.Infrastructure.Controllers
                 Bump((int)comment.ParentCommentId);
             }
 
-            var initialVote = new TCommentVote {};
-            initialVote.Create(CurrentUserId);
-            comment.Votes = new List<TCommentVote>();
-            comment.Votes.Add(initialVote);
-            comment.VoteCount = 1;
+            var initialLike = new TCommentLike {};
+            initialLike.Create(CurrentUserId);
+            comment.Likes = new List<TCommentLike>();
+            comment.Likes.Add(initialLike);
+            comment.LikeCount = 1;
 
             var result = new
             {
                 Comment = comment,
-                UserVotes = comment.Votes
+                UserLikes = comment.Likes
             };
 
             // TODO put into method
@@ -159,16 +159,16 @@ namespace ToolkitBoilerplate.Infrastructure.Controllers
             {
                 Comment = c,
                 c.User.UserName,
-                UserVotes = c.Votes.Where(r => r.UserId == currentUserId)
-                    .Select(r => new { r.Id, r.UpVote }),
+                UserLikes = c.Likes.Where(r => r.UserId == currentUserId)
+                    .Select(r => new { r.Id }),
                 ChildComments = numChildComments <= 0 ? null : c.ChildComments
                     .OrderByDescending(cc => cc.Created)
                     .Select(cc => new
                     {
                         Comment = cc,
                         cc.User.UserName,
-                        UserVotes = cc.Votes.Where(r => r.UserId == currentUserId)
-                            .Select(r => new { r.Id, r.UpVote }),
+                        UserLikes = c.Likes.Where(r => r.UserId == currentUserId)
+                                .Select(r => new { r.Id })
                     }).Take(numChildComments)
             });
             

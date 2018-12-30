@@ -10,9 +10,9 @@ using ToolkitBoilerplate.Infrastructure.Controllers;
 
 namespace ToolkitBoilerplate.Controllers.Posts
 {
-    public class PostCommentVotesController : VotesController<PostCommentVote, PostComment>
+    public class PostCommentLikesController : LikesController<PostCommentLike, PostComment>
     {
-        public PostCommentVotesController(ApplicationDbContext dbContext, SieveProcessor sieveProcessor, IConfiguration config, ILogger<ApplicationController<PostCommentVote>> logger) : base(dbContext, sieveProcessor, config, logger)
+        public PostCommentLikesController(ApplicationDbContext dbContext, SieveProcessor sieveProcessor, IConfiguration config, ILogger<ApplicationController<PostCommentLike>> logger) : base(dbContext, sieveProcessor, config, logger)
         {
         }
     }

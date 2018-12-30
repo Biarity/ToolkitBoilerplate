@@ -25,12 +25,12 @@ namespace ToolkitBoilerplate.Infrastructure.Data
         public bool IsMature { get; set; }
     }
 
-    public class Item<TSelf, TVote> : Item, IVoteParent
-        where TSelf : Item<TSelf, TVote>, new()
-        where TVote : Vote<TSelf>, new()
+    public class Item<TSelf, TLike> : Item, ILikeParent
+        where TSelf : Item<TSelf, TLike>, new()
+        where TLike : Like<TSelf>, new()
     {
         [DataMember]
-        public int VoteCount { get; set; }
-        public List<TVote> Votes { get; set; }
+        public int LikeCount { get; set; }
+        public List<TLike> Likes { get; set; }
     }
 }
