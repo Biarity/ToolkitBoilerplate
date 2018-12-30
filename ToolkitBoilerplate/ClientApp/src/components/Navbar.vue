@@ -28,26 +28,10 @@
                 <div class="navbar-start">
                     <router-link to="/posts" class="navbar-item">
                         <span class="icon">
-                            <i class="far fa-file-text-o"></i>
+                            <i class="far fa-file"></i>
                         </span>&nbsp;
                         <span>
                             Posts
-                        </span>
-                    </router-link>
-                    <router-link to="/discuss" class="navbar-item">
-                        <span class="icon">
-                            <i class="far fa-comment-alt"></i>
-                        </span>&nbsp;
-                        <span>
-                            Discuss
-                        </span>
-                    </router-link>
-                    <router-link to="/create" class="navbar-item">
-                        <span class="icon">
-                            <i class="fas fa-plus"></i>
-                        </span>&nbsp;
-                        <span>
-                            Create
                         </span>
                     </router-link>
                 </div>
