@@ -26,12 +26,12 @@
             <!-- BROWSE MENU -->
             <div class="navbar-menu navbar-anti-burger" id="browse">
                 <div class="navbar-start">
-                    <router-link to="/discover" class="navbar-item">
+                    <router-link to="/posts" class="navbar-item">
                         <span class="icon">
-                            <i class="far fa-star"></i>
+                            <i class="far fa-file-text-o"></i>
                         </span>&nbsp;
                         <span>
-                            Discover
+                            Posts
                         </span>
                     </router-link>
                     <router-link to="/discuss" class="navbar-item">
