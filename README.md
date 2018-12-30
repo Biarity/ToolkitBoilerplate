@@ -14,13 +14,18 @@ git clone https://github.com/Biarity/ToolkitBoilerplate.git .
 && cd ClientApp 
 && npm install 
 ``` 
+2. In `/ToolkitBoilerplate`, update `appsettings.json` and `appsettings.Development.json` (minimum is database connection string)
 
-2. Update `appsettings.json` and `appsettings.Development.json` in /ToolkitBoilerplate
+3. In `/ToolkitBoilerplate`, run
 
-3. Run `dotnet ef database update` in /ToolkitBoilerplate
+```bash
+dotnet ef migrations add Init
+&& dotnet ef database update
+```
 
-* To push local `master` to `origin` remote (project-specific remote): `git push origin master`
-* To pull local `master` to `boilerplate` remote: `git pull boilerplate master`
+4. Start development
+	* To push local `master` to `origin` remote (project-specific remote): `git push origin master`
+	* To pull `boilerplate` remote to local `master`: `git pull boilerplate master`
 
 ## Renaming
 
@@ -37,16 +42,11 @@ git clone https://github.com/Biarity/ToolkitBoilerplate.git .
 
 ## Dev Servers
 
-```bash
-cd ToolkitBoilerplate 
-&& start cmd /k dotnet watch run 
-&& cd ClientApp
-&& start cmd /k npm run serve 
-```
+Open `START_DEV.bat`.
 
-Or...Open `START_DEV.bat`.
+If using Visual Studio, will need to also run `npm run start` in `/ToolkitBoilerplate/ClientApp`.
 
-That is, in the project directory,
+Manually:
 * `dotnet watch run` to start backend on port 5000
 * `npm run serve --prefix ClientApp` to start frontend on port 8080
 * Note in dev backend reverse proxies frontend so no need to got to port 8080
