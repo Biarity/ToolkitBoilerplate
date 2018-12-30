@@ -80,7 +80,7 @@
                     </div>
                 </nav>
 
-                <my-infinite-loading entityPath="posts" :filters="filters" :sorts="sorts">
+                <my-infinite-loading entityPath="posts" <!--:filters="filters" :sorts="sorts"--> >
                     <PostsViewer slot="content" slot-scope="p" :data="p.data" :create-mode="$route.name === 'create'" />
                 </my-infinite-loading>
 
@@ -118,16 +118,15 @@
         },
         computed: {
             filters() {
-                //const f0 = this.searchFilter === '' ? '' : `Search==${this.searchFilter},`;
-                //const f1 = this.mainFilter === '' ? '' : `Status==${this.mainFilter},`;
-                //const f2 = this.genreFilter === '' ? '' : `Genre==${this.genreFilter},`;
-                //const f3 = this.narrowFilter === '' ? '' : `Filter==${this.narrowFilter}`;
-                //let filter = `${f0}${f1}${f2}${f3}`;
-                //if (filter.endsWith(',')) {
-                //    filter = filter.slice(0, -1);
-                //}
-                //return filter;
-                return '';
+                const f0 = this.searchFilter === '' ? '' : `Search==${this.searchFilter},`;
+                const f1 = this.mainFilter === '' ? '' : `Status==${this.mainFilter},`;
+                const f2 = this.genreFilter === '' ? '' : `Genre==${this.genreFilter},`;
+                const f3 = this.narrowFilter === '' ? '' : `Filter==${this.narrowFilter}`;
+                let filter = `${f0}${f1}${f2}${f3}`;
+                if (filter.endsWith(',')) {
+                    filter = filter.slice(0, -1);
+                }
+                return filter;
             },
             sorts() {
                 return this.mainSort;
