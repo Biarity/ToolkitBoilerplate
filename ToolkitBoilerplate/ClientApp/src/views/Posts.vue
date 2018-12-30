@@ -80,7 +80,7 @@
                     </div>
                 </nav>
 
-                <my-infinite-loading entityPath="posts" <!--:filters="filters" :sorts="sorts"--> >
+                <my-infinite-loading entityPath="posts"> <!--:filters="filters" :sorts="sorts"-->
                     <PostsViewer slot="content" slot-scope="p" :data="p.data" :create-mode="$route.name === 'create'" />
                 </my-infinite-loading>
 
